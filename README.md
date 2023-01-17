@@ -34,4 +34,4 @@ Please make sure to update tests as appropriate.
 
 ## Contributors
 
-[![Contributors](https://contrib.rocks/image?repo=Anirudh-A-V/hostel-management-api)]
+![Contributors](https://contrib.rocks/image?repo=Anirudh-A-V/hostel-management-api)
