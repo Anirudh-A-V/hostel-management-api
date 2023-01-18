@@ -2,6 +2,7 @@ import express, { Response, Request } from 'express';
 import bodyparser from 'body-parser';
 import cors from 'cors';
 import dotenv from 'dotenv';
+import mongoose from 'mongoose';
 
 const app = express();
 app.use(bodyparser.json());
@@ -20,3 +21,11 @@ app.listen(PORT, () => {
 });
 
 
+mongoose.set('strictQuery', true);
+mongoose.connect(`${process.env.MY_CONNECTION_URL}`)
+    .then(() => {
+        console.log("Connected to MongoDB");
+    })
+    .catch((err) => {
+        console.log("Error connecting to MongoDB", err);
+    });
