@@ -7,21 +7,10 @@ import mongoose from 'mongoose';
 import logger from './middleware/Logger.js';
 
 const app = express();
-app.use(bodyparser.json());
 app.use(cors());
+app.use(bodyparser.json());
 
-dotenv.config();
-
-app.get('/', (req: Request, res: Response) => {
-    res.send('Hello World');
-});
-
-const PORT = process.env.PORT || 5000;
-
-app.listen(PORT, () => {
-    logger.info(`Server is running on port ${PORT}`);
-});
-
+// Databse connection middlewares
 
 mongoose.set('strictQuery', true);
 mongoose.connect(`${process.env.MY_CONNECTION_URL}`)
@@ -32,10 +21,34 @@ mongoose.connect(`${process.env.MY_CONNECTION_URL}`)
         logger.error("Error connecting to MongoDB", err);
     });
 
-// @TODO - Add logging
-// @TODO - Add error handling
-// @TODO - Add routes
-// @TODO - Add authentication
-// @TODO - Add authorization
-// @TODO - Add testing
-// @TODO - Add documentation 
+dotenv.config();
+
+// Routing middlewares
+
+app.get('/', (req: Request, res: Response) => {
+    res.send('Hello World');
+});
+
+// Error handling middlewares
+
+// Server listening middlewares
+
+const PORT = process.env.PORT || 5000;
+
+app.listen(PORT, () => {
+    logger.info(`Server is running on port ${PORT}`);
+});
+
+
+
+
+/*
+ TODO: 
+    -[x] Add logging
+    -[ ] Add error handling
+    -[ ] Add routes
+    -[ ] Add authentication
+    -[ ] Add authorization
+    -[ ] Add testing
+    -[ ] Add documentation 
+*/
