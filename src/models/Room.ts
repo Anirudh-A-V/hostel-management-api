@@ -12,6 +12,10 @@ const roomSchema = new Schema({
         type: Schema.Types.ObjectId,
         ref: 'Hostel',
     },
+    building: {
+        type: Schema.Types.ObjectId,
+        ref: 'Building',
+    },
     type: {
         type: String,
         required: true,
