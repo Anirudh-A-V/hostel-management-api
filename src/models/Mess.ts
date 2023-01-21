@@ -8,7 +8,7 @@ const messSchema = new Schema({
         required: true,
         unique: true
     },
-    hostelId: {
+    hostel: {
         type: Schema.Types.ObjectId,
         ref: 'Hostel',
         required: true,
