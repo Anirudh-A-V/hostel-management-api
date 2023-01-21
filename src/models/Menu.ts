@@ -8,26 +8,46 @@ const menuSchema = new Schema({
         required: true,
         unique: true
     },
-    breakfast: {
+    breakfastVeg: {
         type: Schema.Types.ObjectId,
         ref: 'Food',
-        required: true,
+        required: false,
     },
-    lunch: {
+    lunchVeg: {
         type: Schema.Types.ObjectId,
         ref: 'Food',
-        required: true,
+        required: false,
     },
-    snack: {
+    snackVeg: {
         type: Schema.Types.ObjectId,
         ref: 'Snack',
-        required: true,
+        required: false,
     },
-    dinner: {
+    dinnerVeg: {
         type: Schema.Types.ObjectId,
         ref: 'Food',
-        required: true,
-    }
+        required: false,
+    },
+    breakfastNonVeg: {
+        type: Schema.Types.ObjectId,
+        ref: 'Food',
+        required: true
+    },
+    lunchNonVeg: {
+        type: Schema.Types.ObjectId,
+        ref: 'Food',
+        required: true
+    },
+    snackNonVeg: {
+        type: Schema.Types.ObjectId,
+        ref: 'Snack',
+        required: true
+    },
+    dinnerNonVeg: {
+        type: Schema.Types.ObjectId,
+        ref: 'Food',
+        required: true
+    },
 });
 
 export default mongoose.model('Menu', menuSchema);
